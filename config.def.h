@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+#include <X11/XF86keysym.h>
+
 /* appearance */
 static unsigned int borderpx  = 1;        /* border pixel of windows */
 static unsigned int snap      = 32;       /* snap pixel */
@@ -71,7 +73,12 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "st", NULL };
+// static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "rxvt-unicode", "-e", "/home/fr30n/.scripts/tmux.sh", NULL };
+static const char *upvol[] = { "amixer", "-q", "sset", "Master", "1%+", NULL };
+static const char *downvol[] = { "amixer", "-q", "sset", "Master", "1%-", NULL };
+static const char *mute[] = { "amixer", "-q", "-D", "pulse", "sset", "Master", "toggle", NULL };
+static const char *screenlock[] = { "slock", NULL };
 
 /*
  * Xresources preferences to load at startup
@@ -94,6 +101,11 @@ ResourcePref resources[] = {
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+    { 0,                            XF86XK_AudioRaiseVolume,      spawn,          {.v = upvol } },
+    { 0,                            XF86XK_AudioLowerVolume,      spawn,          {.v = downvol } },
+    { 0,                            XF86XK_AudioMute,             spawn,          {.v = mute } },
+    { 0,                            XF86XK_MonBrightnessUp ,      setbrightness,          {.f = +0.10 } },
+    { 0,                            XF86XK_MonBrightnessDown ,    setbrightness,          {.f = -0.10 } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
@@ -106,6 +118,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = screenlock } },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },

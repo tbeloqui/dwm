@@ -246,6 +246,7 @@ static void setfocus(Client *c);
 static void setfullscreen(Client *c, int fullscreen);
 static void setlayout(const Arg *arg);
 static void setmfact(const Arg *arg);
+static void setbrightness(const Arg *arg);
 static void setup(void);
 static void seturgent(Client *c, int urg);
 static void showhide(Client *c);
@@ -1749,6 +1750,29 @@ setmfact(const Arg *arg)
 	selmon->mfact = selmon->pertag->mfacts[selmon->pertag->curtag] = f;
 	arrange(selmon);
 }
+
+
+void
+setbrightness(const Arg *arg)
+{
+       static float f = 0.5f;
+
+       char level[10];
+       char *cmd[] = {"xrandr", "--output", "eDP-1", "--brightness", level, NULL};
+
+       if (!arg)
+               return;
+
+       f += arg->f;
+       f = MIN(f, 1.0);
+       f = MAX(f, 0.f);
+
+    snprintf (level, sizeof(level), "%f", f);
+
+       Arg larg = { .v = cmd };
+       spawn (&larg);
+}
+
 
 void
 setup(void)
