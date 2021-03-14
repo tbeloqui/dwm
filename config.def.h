@@ -34,9 +34,16 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
-};
+    { "Pavucontrol",     NULL,       NULL,       0,            1,           -1 },
+    { "keepassx",        NULL,       NULL,       0,            1,           -1 },
+    { "Gimp",            NULL,       NULL,       0,            1,           -1 },
+    { "Slack",           NULL,       NULL,       0,            0,           -1 },
+    { "TelegramDesktop", NULL,       NULL,       0,            0,           -1 },
+    { "Standard Notes",   NULL,       NULL,       0,            0,           -1 },
+    { "Sublime_text",    NULL,       NULL,       2,            0,           -1 },
+    { "URxvt",           NULL,       NULL,       4,            0,           -1 },
+    { "Brave-browser",   NULL,       NULL,       8,            0,           -1 },
+}; 
 
 /* layout(s) */
 static float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
