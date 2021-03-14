@@ -13,8 +13,9 @@ static const int showsystray        = 1;     /* 0 means no systray */
 
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = { "xft:DejaVu Sans Mono:pixelsize=12" };
+static const char dmenufont[]       = "xft:DejaVu Sans Mono:pixelsize=12";
+
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
