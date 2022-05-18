@@ -42,10 +42,9 @@ static const Rule rules[] = {
     { "Gimp",            NULL,       NULL,       0,            1,           -1 },
     { "Slack",           NULL,       NULL,       0,            0,           -1 },
     { "TelegramDesktop", NULL,       NULL,       0,            0,           -1 },
-    { "Standard Notes",   NULL,       NULL,       0,            0,           -1 },
-    { "Sublime_text",    NULL,       NULL,       2,            0,           -1 },
-    { "URxvt",           NULL,       NULL,       4,            0,           -1 },
-    { "Brave-browser",   NULL,       NULL,       8,            0,           -1 },
+    { "Sublime_text",    NULL,       NULL,       1,            0,           -1 },
+    { "URxvt",           NULL,       NULL,       2,            0,           -1 },
+    { "Brave-browser",   NULL,       NULL,       4,            0,           -1 },
 }; 
 
 /* layout(s) */
@@ -75,7 +74,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
 // static const char *termcmd[]  = { "st", NULL };
-static const char *termcmd[]  = { "rxvt-unicode", "-e", "/home/fr30n/.scripts/tmux.sh", NULL };
+static const char *termcmd[]  = { "rxvt-unicode", "-e", "/home/tbeloqui/.scripts/tmux.sh", NULL };
 static const char *upvol[] = { "amixer", "-q", "sset", "Master", "1%+", NULL };
 static const char *downvol[] = { "amixer", "-q", "sset", "Master", "1%-", NULL };
 static const char *mute[] = { "amixer", "-q", "-D", "pulse", "sset", "Master", "toggle", NULL };
