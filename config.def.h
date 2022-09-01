@@ -40,11 +40,10 @@ static const Rule rules[] = {
     { "Pavucontrol",     NULL,       NULL,       0,            1,           -1 },
     { "keepassx",        NULL,       NULL,       0,            1,           -1 },
     { "Gimp",            NULL,       NULL,       0,            1,           -1 },
-    { "Slack",           NULL,       NULL,       0,            0,           -1 },
-    { "TelegramDesktop", NULL,       NULL,       0,            0,           -1 },
-    { "Sublime_text",    NULL,       NULL,       1,            0,           -1 },
-    { "URxvt",           NULL,       NULL,       2,            0,           -1 },
-    { "Brave-browser",   NULL,       NULL,       4,            0,           -1 },
+    { "TelegramDesktop", NULL,       NULL,  1 << 0,            0,           -1 },
+    { "Sublime_text",    NULL,       NULL,  1 << 1,            0,           -1 },
+    { "URxvt",           NULL,       NULL,  1 << 2,            0,           -1 },
+    { "Brave-browser",   NULL,       NULL,  1 << 3,            0,           -1 },
 }; 
 
 /* layout(s) */
